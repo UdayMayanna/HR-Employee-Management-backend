@@ -15,4 +15,6 @@ public interface DepartmentRepository extends JpaRepository<Department,Integer> 
   public Department findById(int dep_id);
   
   public int countByHrHrId(int hr_id);
+
+  public List<Department> findByDepartmentNameContainingIgnoreCaseAndHrHrId(String query,int hr_id);
 }

@@ -12,4 +12,12 @@ public interface DepartmentService {
 
 	int getCount(int hr_id);
 
+	String deleteDepartment(int dept_id);
+
+	List<Department> getSearchResult(String query,int hr_id);
+
+	Department getSingleDepartment(int dept_id);
+
+	String updateDepartment(Department departent,int dept_id);
+
 }

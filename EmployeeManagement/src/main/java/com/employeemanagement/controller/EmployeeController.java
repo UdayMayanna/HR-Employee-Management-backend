@@ -36,11 +36,6 @@ public class EmployeeController {
 		return ResponseEntity.ok(this.employeeService.getAllEmployees(hr_id));
 	}
 	
-	@GetMapping("/count/{hr_id}/")
-	public ResponseEntity<Integer> getCountOfEmployees(@PathVariable int hr_id) {
-		return ResponseEntity.ok(this.employeeService.getCount(hr_id));
-	}
-	
 	@GetMapping("/dashboard/{hr_id}/")
 	public ResponseEntity<DashboardStats> getDashBoardCount(@PathVariable int hr_id){
 		return ResponseEntity.ok(this.employeeService.getDashboardCount(hr_id));
@@ -52,8 +47,19 @@ public class EmployeeController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@PutMapping("/{emp_id}/")
-	public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee, @PathVariable int emp_id){
-		return ResponseEntity.ok(this.employeeService.updateEmployee(employee,emp_id));
+	@PutMapping("/{emp_id}/{dep_id}/")
+	public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee,
+			@PathVariable int emp_id, @PathVariable int dep_id){
+		return ResponseEntity.ok(this.employeeService.updateEmployee(employee,emp_id,dep_id));
+	}
+	
+	@GetMapping("/single/{emp_id}/")
+	public ResponseEntity<Employee> getEmployee(@PathVariable int emp_id){
+		return ResponseEntity.ok(this.employeeService.getEmployee(emp_id));
+	}
+	
+	@GetMapping("/search/{query}/{hrId}")
+	public ResponseEntity<List<Employee>> getSerchResults(@PathVariable String query, @PathVariable int hrId){
+		return ResponseEntity.ok(this.employeeService.getSerchResults(query,hrId));
 	}
 }

@@ -2,6 +2,8 @@ package com.employeemanagement.entities;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.Cascade;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;

@@ -12,4 +12,10 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
   public int countByDepartmentHrHrId(int hr_id);
   
   public int countByDepartmentHrHrIdAndRole(int hr_id,String role);
-}
+  
+  public Employee findByEmpid(int emp_id);
+  
+  public boolean existsByDepartmentId(int dept_id);
+  
+  public List<Employee> findByFnameContainingIgnoreCaseAndDepartmentHrHrId(String fname,int hrId);
+  }
